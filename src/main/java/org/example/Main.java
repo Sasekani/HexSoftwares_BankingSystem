@@ -49,8 +49,12 @@ public class Main {
                 case 2:
                     System.out.print("Enter withdrawal amount: R");
                     double withdrawAmount = sc.nextDouble();
-                    account.withdraw(withdrawAmount);
-                    System.out.println("Current balance: R" + account.getBalance());
+                    boolean success = account.withdraw(withdrawAmount);
+                    if (success) {
+                        System.out.println("Withdrawal successful. New balance: R" + account.getBalance());
+                    } else {
+                        System.out.println("Withdrawal failed. Current balance: R" + account.getBalance());
+                    }
                     break;
                 case 3:
                     System.out.println("Current balance: R" + account.getBalance());

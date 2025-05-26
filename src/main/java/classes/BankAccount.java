@@ -21,19 +21,18 @@ public class BankAccount {
         }
 
     }
-    public void withdraw(double amount) {
-        if (amount > 0) {
-            if (balance >= amount) {
-                balance -= amount;
-                System.out.println ("Withdrew: R " + amount);
-            }
-            else {
-                System.out.println ("Insufficient funds for withdrawal!");
-            }
-
+    public boolean withdraw(double amount) {
+        if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount!");
+            return false;
         }
-        else {
-            System.out.println ("Invalid withdrawal amount!");
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrew: R" + amount);
+            return true;
+        } else {
+            System.out.println("Insufficient funds for withdrawal!");
+            return false;
         }
     }
 
